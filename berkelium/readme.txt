@@ -1,1 +1,0 @@
-Downloaded and unpacked from http://github.com/downloads/sirikata/berkelium/berkelium-win32-beta-2010-08-01.7z

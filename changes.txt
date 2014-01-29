@@ -1,3 +1,7 @@
+
+ - Fork from UnityBerkeliumPlugin to UnityChromiumPlugin
+ - Change Chromium binding from Berkeium to CEF (Berkelium is no longer maintained)
+
 2010-07-05:
 - Initial version
 - No dirty rectangle implementation yet

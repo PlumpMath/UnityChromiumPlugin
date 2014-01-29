@@ -4,8 +4,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef UNITYBERKELIUMPLUGIN_GLOBAL_H
-#define UNITYBERKELIUMPLUGIN_GLOBAL_H
+#ifndef UNITYCHROMIUMPLUGIN_GLOBAL_H
+#define UNITYCHROMIUMPLUGIN_GLOBAL_H
+
+//#define _ITERATOR_DEBUG_LEVEL 2//deal with MSVC stupidity
+//#define _DEBUG
+
 
 // Windows and pocket pc
 #if defined(_WIN32_WCE) || defined(WIN32)
@@ -50,10 +54,37 @@ using std::wcerr;
 #include <cassert>
 
 
-// Defines
-#ifndef NULL
-	#define NULL 0
-#endif // NULL
+
+#include "include/cef_task.h"
+
+#if defined(OS_WIN)
+
+#include <windows.h>  // NOLINT(build/include_order)
+
+#ifndef NDEBUG
+#define ASSERT(condition) if (!(condition)) { DebugBreak(); }
+
+#else
+#define ASSERT(condition) ((void)0)
+#endif
+
+#else  // !OS_WIN
+
+#include <assert.h>  // NOLINT(build/include_order)
+
+#ifndef NDEBUG
+#define ASSERT(condition) if (!(condition)) { assert(false); }
+#else
+#define ASSERT(condition) ((void)0)
+#endif
+
+#endif  // !OS_WIN
+
+#define REQUIRE_UI_THREAD()   ASSERT(CefCurrentlyOn(TID_UI));
+#define REQUIRE_IO_THREAD()   ASSERT(CefCurrentlyOn(TID_IO));
+#define REQUIRE_FILE_THREAD() ASSERT(CefCurrentlyOn(TID_FILE));
 
 
-#endif // UNITYBERKELIUMPLUGIN_GLOBAL_H
+
+
+#endif // UNITYCHROMIUMPLUGIN_GLOBAL_H

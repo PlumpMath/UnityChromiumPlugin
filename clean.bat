@@ -15,7 +15,7 @@ del src\vs2008\*.user /Q
 :: Runtime files
 del test-project\*.log /Q
 del test-release\*.log /Q
-del test-release\BerkeliumUnityTest_Data\output_log.txt /Q
+del test-release\ChromiumUnityTest_Data\output_log.txt /Q
 
 :done
 echo done!

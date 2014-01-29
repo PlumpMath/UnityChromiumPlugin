@@ -1,3 +1,8 @@
 
 /test-project/chrome.log
-/test-project/BerkeliumUnityTest.log
+/test-project/ChromiumUnityTest.log
+*.sublime-project
+*.sublime-workspace
+cef/binx64/
+old/
+*.sdf

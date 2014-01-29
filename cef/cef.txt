@@ -1,0 +1,10 @@
+
+CEF release:
+cef_binary_3.1650.1562_windows64
+
+Updating:
+Downlaod the binary CEF version, build.
+ - Copy everything from <cef>/out/ to cef/bin
+ - Copy everything from <cef>/include to cef/include/include.
+ - Copy libcef.lib from <cef>/(Debug|Release) to cef/(Debug|Release)/lib
+
